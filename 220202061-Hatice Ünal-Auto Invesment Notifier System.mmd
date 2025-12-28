@@ -1,0 +1,34 @@
+sequenceDiagram
+    actor Investor
+    participant System as Auto Investment<br/>Notifier System
+    participant DB as Alert Database
+    participant StockAPI as Stock API
+
+    Investor->>System: Manage Stock Alerts
+    System->>DB: Get tracked stocks & alerts
+    DB-->>System: Stock & alert list
+    System-->>Investor: Display alert list
+
+    Investor->>System: Create / Update Alert
+    System->>Investor: Request alert details
+    Investor->>System: Enter threshold & condition
+
+    System->>System: Validate alert rules
+
+    alt Valid alert details
+        System->>DB: Save / update alert
+        DB-->>System: Save successful
+        System-->>Investor: Alert saved successfully
+    else Invalid threshold or rule
+        System-->>Investor: Error message (invalid rule)
+    end
+
+    opt Stock identifier check
+        System->>StockAPI: Validate stock symbol
+        StockAPI-->>System: Symbol valid / invalid
+    end
+
+    Investor->>System: View updated alert list
+    System->>DB: Fetch updated alerts
+    DB-->>System: Updated alert list
+    System-->>Investor: Show updated alerts
