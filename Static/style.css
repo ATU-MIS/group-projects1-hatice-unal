@@ -1,0 +1,197 @@
+/* =========================
+   RESET
+========================= */
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    background: #000 !important;
+    color: #eaeaea !important;
+    font-family: Arial, sans-serif;
+}
+
+/* =========================
+   BOOTSTRAP MAVİ TEMİZLİK
+========================= */
+.bg-primary,
+.bg-light,
+.bg-white {
+    background-color: #000 !important;
+}
+
+.text-primary {
+    color: #ff4c4c !important;
+}
+
+.btn-primary,
+.btn-outline-primary {
+    background-color: #d4af37 !important;
+    border-color: #d4af37 !important;
+    color: #000 !important;
+}
+
+.btn-outline-primary:hover,
+.btn-primary:hover {
+    background-color: #b8962e !important;
+    color: #000 !important;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+.navbar {
+    background-color: #000 !important;
+    border-bottom: 2px solid #d4af37;
+}
+
+.navbar-brand {
+    color: #d4af37 !important;
+    font-weight: bold;
+}
+
+.nav-link {
+    color: #ff4c4c !important;
+    margin-left: 15px;
+}
+
+.nav-link:hover {
+    color: #d4af37 !important;
+}
+
+/* =========================
+   HERO / SECTION
+========================= */
+section {
+    background-color: #000 !important;
+    padding: 60px 0;
+}
+
+h1, h2, h3, h4 {
+    color: #ff4c4c;
+    text-align: center;
+}
+
+/* =========================
+   ANA KUTULAR
+========================= */
+.main-box,
+.auth-box {
+    background: #0e0e0e;
+    padding: 30px;
+    border-radius: 14px;
+    box-shadow: 0 0 30px rgba(212,175,55,0.35);
+    max-width: 900px;
+    margin: 50px auto;
+}
+
+.auth-box {
+    max-width: 400px;
+}
+
+/* =========================
+   FORM
+========================= */
+label {
+    color: #d4af37;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    background: #000;
+    border: 1px solid #333;
+    color: white;
+    border-radius: 6px;
+}
+
+/* =========================
+   BUTONLAR
+========================= */
+.btn-gold {
+    background: #d4af37;
+    border: none;
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 6px;
+    color: #000;
+}
+
+.btn-gold:hover {
+    background: #b8962e;
+}
+
+.btn-red {
+    background: #c0392b;
+    border: none;
+    padding: 8px;
+    border-radius: 6px;
+    color: white;
+}
+
+/* =========================
+   KARTLAR
+========================= */
+.card {
+    background: #0b0b0b !important;
+    border-radius: 10px;
+    color: #eaeaea;
+}
+
+.card.red {
+    border: 1px solid #ff4c4c;
+}
+
+.card.gold {
+    border: 1px solid #d4af37;
+}
+
+/* =========================
+   LINKLER
+========================= */
+a {
+    color: #ff4c4c !important;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #d4af37 !important;
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+    background: #000;
+    border-top: 2px solid #d4af37;
+    color: #eaeaea;
+}
+
+/* =========================
+   TOAST
+========================= */
+.toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #d4af37;
+    color: #000;
+    padding: 12px 18px;
+    border-radius: 6px;
+    font-weight: bold;
+    z-index: 9999;
+}
+
+/* =========================
+   BUTON ANİMASYON
+========================= */
+button {
+    transition: transform 0.15s ease;
+}
+
+button:active {
+    transform: scale(0.95);
+}

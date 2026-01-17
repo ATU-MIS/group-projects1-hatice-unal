@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard | Auto Investment</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+        <span class="navbar-brand">Auto Investment</span>
+
+        <div class="ms-auto">
+            <a class="nav-link d-inline" href="/dashboard">Dashboard</a>
+            <a class="nav-link d-inline" href="/">Home</a>
+            <a class="nav-link d-inline" href="/logout">Logout</a>
+        </div>
+    </div>
+</nav>
+
+<div class="main-box">
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="text-danger">Dashboard</h2>
+        <span id="clock" class="text-warning fw-bold"></span>
+    </div>
+
+    <div class="section-box">
+        <h5 class="text-warning">Add Stock Alert</h5>
+
+        <form method="post" class="row g-2">
+            <div class="col-md-5">
+                <label>Stock Symbol</label>
+                <input type="text" name="stock" required>
+            </div>
+
+            <div class="col-md-5">
+                <label>Discount %</label>
+                <input type="number" step="0.1" name="threshold" required>
+            </div>
+
+            <div class="col-md-2 d-flex align-items-end">
+                <button class="btn-gold w-100">Add</button>
+            </div>
+        </form>
+    </div>
+
+    <h5 class="text-danger mt-4">Your Alerts</h5>
+
+    <div class="row">
+        {% for alert in alerts %}
+        <div class="col-md-4">
+            <div class="card-dark red">
+                <h6>{{ alert.stock }}</h6>
+                <p>Threshold: {{ alert.threshold }}%</p>
+                <p>Price: {{ alert.price or "N/A" }} USD</p>
+
+                <form action="/add-favorite/{{ alert.stock }}" method="post">
+                    <button class="btn-gold btn-sm">⭐ Favorite</button>
+                </form>
+
+                <form action="/delete-alert/{{ alert.id }}" method="post" class="delete-alert">
+                    <button class="btn-red btn-sm mt-2">Delete</button>
+                </form>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <h5 class="text-danger mt-4">Your Favorites</h5>
+
+    <div class="row">
+        {% for fav in favorites %}
+        <div class="col-md-4">
+            <div class="card-dark gold">
+                <h6>{{ fav.stock }}</h6>
+                <p>Price: {{ fav.price or "N/A" }} USD</p>
+
+                <form action="/remove-favorite/{{ fav.id }}" method="post">
+                    <button class="btn-red btn-sm">Remove</button>
+                </form>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
